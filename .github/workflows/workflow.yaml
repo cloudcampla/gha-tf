@@ -23,6 +23,10 @@ jobs:
           terraform fmt
           terraform validate
 
-      - name: Terrafom apply
+      - name: Terrafom Plan
         run: |
-          terraform plan
+          terraform plan -out tfplan
+
+      - name: Terrafom Apply
+        run: |
+          terraform apply tfplan
